@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Код доступа</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff; /* Белый фон страницы */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 400px; /* Максимальная ширина контейнера */
+            padding: 0 20px; /* Отступы по бокам */
+            box-sizing: border-box; /* Включаем паддинг и бордер в ширину контейнера */
+        }
+        .unlock-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            width: 100%; /* Используем 100% ширины контейнера */
+        }
+        .title {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #999;
+        }
+        .dots-container {
+            margin-bottom: 30px;
+        }
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #007bff;
+            margin: 5px;
+        }
+        .dot.inactive {
+            background-color: #e0e0e0;
+        }
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 60px);
+            grid-template-rows: repeat(4, 60px);
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .button-grid > div {
+            background: transparent; /* Пустые ячейки сетки */
+        }
+        .digit-button, .delete-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #f1f1f1;
+            color: black;
+            font-size: 24px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .digit-button:hover, .delete-button:hover {
+            background-color: #d1d1d1;
+        }
+        .delete-button {
+            font-family: 'Material Symbols Outlined', sans-serif;
+        }
+        .delete-button::before {
+            content: 'backspace'; /* Используем Material Symbols для иконки backspace */
+            font-size: 24px;
+        }
+        .forgot-code {
+            font-size: 14px;
+            margin-top: 30px;
+            color: #007bff;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="unlock-container" id="unlockContainer">
+            <div class="title">Код доступа</div>
+            <div class="dots-container" id="dotsContainer">
+                <div class="dot inactive"></div>
+                <div class="dot inactive"></div>
+                <div class="dot inactive"></div>
+                <div class="dot inactive"></div>
+            </div>
+            <div class="button-grid">
+                <button class="digit-button" onclick="appendDigit('1')">1</button>
+                <button class="digit-button" onclick="appendDigit('2')">2</button>
+                <button class="digit-button" onclick="appendDigit('3')">3</button>
+                <button class="digit-button" onclick="appendDigit('4')">4</button>
+                <button class="digit-button" onclick="appendDigit('5')">5</button>
+                <button class="digit-button" onclick="appendDigit('6')">6</button>
+                <button class="digit-button" onclick="appendDigit('7')">7</button>
+                <button class="digit-button" onclick="appendDigit('8')">8</button>
+                <button class="digit-button" onclick="appendDigit('9')">9</button>
+                <div></div> <!-- Пустая ячейка для выравнивания -->
+                <button class="digit-button" onclick="appendDigit('0')">0</button>
+                <button class="delete-button" onclick="clearInput()"></button>
+            </div>
+            <div class="forgot-code">Забыли код доступа?</div>
+        </div>
+    </div>
+
+    <script>
+        const correctCode = '2580'; // Измените это значение на свой правильный код
+        let enteredCode = '';
+
+        function updateDots() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('inactive', index >= enteredCode.length);
+            });
+        }
+
+        function appendDigit(digit) {
+            if (enteredCode.length < 4) {
+                enteredCode += digit;
+                updateDots();
+                if (enteredCode.length === 4) {
+                    unlockPage();
+                }
+            }
+        }
+
+        function clearInput() {
+            enteredCode = '';
+            updateDots();
+        }
+
+        function unlockPage() {
+            if (enteredCode === correctCode) {
+                window.location.href = 'main.html'; // Перенаправляем на вторую страницу
+            } else {
+                alert('Неверный код. Попробуйте еще раз.');
+                clearInput();
+            }
+        }
+    </script>
+</body>
+</html>

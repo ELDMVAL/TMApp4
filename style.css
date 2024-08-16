@@ -1,0 +1,157 @@
+/* Общие стили для приложения */
+ion-app {
+  --background: #ffffff; /* Основной фон приложения */
+}
+
+/* Стили для ion-content */
+ion-content {
+  --background: #ffffff;
+  --padding-top: 50px; /* Отступ сверху */
+}
+
+/* Стили для кастомного меню */
+.menu {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center; /* Вертикальное выравнивание элементов по центру */
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: #f9f9f9; /* Светло-серый фон для контраста */
+  cursor: pointer;
+  text-decoration: none;
+  color: #333; /* Темный цвет текста для контраста */
+  position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Плавное изменение цвета */
+}
+
+/* Стили при наведении на элементы меню */
+.menu-item:hover,
+.menu-item:focus {
+  background-color: #3880ff; /* Цвет фона при наведении */
+  color: #ffffff; /* Цвет текста при наведении */
+}
+
+.menu-item:hover .arrow-icon,
+.menu-item:focus .arrow-icon {
+  color: #ffffff; /* Белый цвет стрелочки при наведении */
+}
+
+.menu-icon {
+  width: 28px;
+  height: 28px;
+  margin-right: 16px;
+  color: #333; /* Темный цвет иконок для контраста */
+  transition: color 0.3s ease; /* Плавное изменение цвета иконок */
+}
+
+.menu-item:hover .menu-icon,
+.menu-item:focus .menu-icon {
+  color: #ffffff; /* Белый цвет иконок при наведении */
+}
+
+.menu-text {
+  font-size: 17px;
+  flex: 1;
+  text-align: left; /* Выравнивание текста по левому краю */
+  display: flex;
+  align-items: center; /* Вертикальное выравнивание текста по центру */
+}
+
+/* Обновленные стили для стрелочки */
+.arrow-icon {
+  width: 16px;
+  height: 16px;
+  color: #999; /* Цвет стрелочки по умолчанию */
+  position: absolute;
+  right: 16px;
+  font-size: 16px;
+}
+
+/* Стили для элементов списка с иконками */
+.list-item-icon {
+  width: 28px;
+  height: 28px;
+  margin-right: 18px;
+  color: #999; /* Цвет иконки по умолчанию */
+  font-size: 24px;
+}
+
+/* Стилизация для элементов списка с иконками */
+.list-item-content {
+  display: flex;
+  align-items: center; /* Вертикальное выравнивание элементов по центру */
+  width: 100%;
+  padding: 16px;
+  position: relative;
+}
+
+.list-item-content .text-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Вертикальное выравнивание текста */
+}
+
+.list-item-content .text-container div {
+  font-size: 17px;
+  color: #000;
+}
+
+.list-item-content .text-container .role {
+  font-size: 13px;
+  color: #999;
+}
+
+/* Стили для заголовка над списком */
+.menu-header {
+  font-size: 16px;
+  font-weight: 300;
+  color: #7d7d7d;
+  padding: 8px 8px 8px 32px;
+  margin: 0;
+  text-align: left;
+}
+
+/* Стили для фона нижнего меню и отступов иконок */
+ion-tab-bar {
+  --background: #ffffff; /* Белый фон для нижнего меню */
+  position: fixed;
+  bottom: 0; /* Обеспечивает, что меню будет прикреплено к нижней части экрана */
+  left: 0;
+  width: 100%; /* Обеспечивает, что меню занимает полную ширину экрана */
+  z-index: 1000; /* Обеспечивает, что меню будет поверх других элементов */
+  transform: translateY(-20px); /* Поднимает меню вверх на 20px */
+}
+
+ion-tab-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Вертикальное выравнивание элементов по центру */
+  padding-bottom: 6px; /* Отступ для иконок от нижней линии */
+}
+
+/* Отступы для иконок в нижнем меню */
+ion-tab-button ion-icon {
+  margin-top: 8px; /* Отступ сверху для иконок в нижнем меню */
+  margin-bottom: 0px; /* Убирает дополнительный отступ снизу */
+}
+
+/* Отступы для иконок в верхнем меню */
+ion-content ion-icon {
+  margin-top: 0px; /* Отступ сверху для иконок в верхнем меню */
+  margin-bottom: 0px; /* Убирает дополнительный отступ снизу */
+}
+
+ion-label {
+  margin-top: 2px; /* Отступ между иконкой и подписью */
+  text-align: center; /* Центрирование текста */
+  display: flex;
+  align-items: center; /* Вертикальное выравнивание текста по центру */
+}

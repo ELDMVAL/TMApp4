@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Приложение на Ionic для iOS</title>
+  <!-- Ionic CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css">
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+  <ion-app>
+    <!-- Основной контент -->
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+
+    <!-- Вкладки -->
+    <ion-tabs>
+      <!-- Tab Bar -->
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="home">
+          <ion-icon name="home-outline"></ion-icon>
+          <ion-label>Главная</ion-label>
+        </ion-tab-button>
+        
+        <ion-tab-button tab="contacts">
+          <ion-icon name="person-circle-outline"></ion-icon>
+          <ion-label>Контакты</ion-label> 
+        </ion-tab-button>
+        
+        <ion-tab-button tab="qrcode">
+          <ion-icon name="qr-code-outline"></ion-icon>
+          <ion-label>DAX QR</ion-label>
+        </ion-tab-button>
+        
+        <ion-tab-button tab="settings">
+          <ion-icon name="settings-outline"></ion-icon>
+          <ion-label>Настройки</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+
+      <!-- Вкладка: Главная -->
+      <ion-tab tab="home">
+        <ion-content>
+          <div class="menu">
+            <a class="menu-item no-underline" routerLink="/create-order">
+              <ion-icon name="add-outline" class="menu-icon"></ion-icon>
+              <div class="menu-text">Создать заказ</div>
+              <ion-icon name="chevron-forward-outline" class="arrow-icon"></ion-icon>
+            </a>
+
+            <a class="menu-item no-underline" routerLink="/orders">
+              <ion-icon name="cart-outline" class="menu-icon"></ion-icon>
+              <div class="menu-text">Заказы</div>
+              <ion-icon name="chevron-forward-outline" class="arrow-icon"></ion-icon>
+            </a>
+
+            <a class="menu-item no-underline" routerLink="/payment">
+              <ion-icon name="checkmark-outline" class="menu-icon"></ion-icon>
+              <div class="menu-text">Оплата</div>
+              <ion-icon name="chevron-forward-outline" class="arrow-icon"></ion-icon>
+            </a>
+
+            <a class="menu-item no-underline" routerLink="/route">
+              <ion-icon name="location-outline" class="menu-icon"></ion-icon>
+              <div class="menu-text">Маршрут</div>
+              <ion-icon name="chevron-forward-outline" class="arrow-icon"></ion-icon>
+            </a>
+          </div>
+        </ion-content>
+      </ion-tab>
+
+      <!-- Вкладка: Контакты -->
+      <ion-tab tab="contacts">
+        <ion-content>
+          <div style="padding: 16px;">
+            <h2>Контакты</h2>
+          </div>
+        </ion-content>
+      </ion-tab>
+
+      <!-- Вкладка: QR-code -->
+      <ion-tab tab="qrcode">
+        <ion-content>
+          <div style="padding: 16px;">
+            <h2>QR-code</h2>
+          </div>
+        </ion-content>
+      </ion-tab>
+
+      <!-- Вкладка: Настройки -->
+      <ion-tab tab="settings">
+        <ion-content>
+          <div style="padding: 16px;">
+            <h2>Настройки</h2>
+          </div>
+        </ion-content>
+      </ion-tab>
+    </ion-tabs>
+  </ion-app>
+
+  <!-- Ionic JS -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core@7.0.0/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core@7.0.0/dist/ionic/ionic.js"></script>
+
+  <!-- Ваши скрипты -->
+  <script>
+    // Ваши дополнительные скрипты могут быть добавлены здесь
+  </script>
+</body>
+</html>
